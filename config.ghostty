@@ -14,7 +14,7 @@ shell-integration = detect
 shell-integration-features = sudo,title,ssh-env
 
 # FONT - same Nerd Font as Ptyxis (see 000-0-dotfiles docs/nerd-fonts.md).
-font-family = JetBrainsMono Nerd Font Mono
+font-family = FiraCode Nerd Font Mono
 font-size = 14
 
 # APPEARANCE - Catppuccin Mocha (built-in theme), 80% opacity.
