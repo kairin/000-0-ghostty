@@ -5,6 +5,13 @@
 - Change the primary font to FiraCode Nerd Font Mono per owner decision 2026-10-31.
 - Not deployed. The installed configuration is unchanged until it is copied.
 
+## 2026-10-31: Update documentation scope
+
+- Mark the Ghostty 1.3-era library table as historical and make compiler
+  selection release-specific.
+- Record the known Ghostty 1.4.0 Zig mismatch and link the current handover.
+- Clarify when package authorization is needed and scope DNF/EPEL steps to RHEL.
+
 ## 2026-10-23: Updater 1.0.007
 
 - Install mapped Ghostty build prerequisites through helper-gated APT or DNF repair.
