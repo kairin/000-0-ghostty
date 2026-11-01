@@ -1,3 +1,47 @@
+```mermaid
+flowchart TB
+    subgraph Rules["Rules and navigation"]
+        W["000-0-workspace<br/>Shared policies, procedures and architecture"]
+        M["000-0-manifest<br/>Repository inventory and status"]
+        S["000-0-ASD-STE100<br/>Writing standards and prose checker"]
+    end
+
+    subgraph Operations["Machine setup and automation"]
+        A["000-0-ai<br/>AI configuration, skills, safeguards<br/>and update command"]
+        D["000-0-dotfiles<br/>Machine and Bash setup<br/>Development-tool catalog, doctor and installer"]
+        P["000-0-password<br/>Encrypted secrets and with-secret"]
+    end
+
+    subgraph Specialist["Terminal and database guidance"]
+        G["000-0-ghostty<br/>Terminal configuration and integration"]
+        TM["000-0-tmux-cheat-sheet<br/>Persistent terminal and agent sessions"]
+        T["000-0-tables<br/>Database stack, research and reusable patterns"]
+    end
+
+    W -. "shared policies" .-> Operations
+    W -. "shared policies" .-> Specialist
+    M -. "links to responsibility map" .-> W
+    S -. "writing standards" .-> W
+    S -. "source for ste-writing skill" .-> A
+
+    A -->|"calls development-tool checks and repairs"| D
+    A -->|"builds Ghostty and checks configuration"| G
+
+    D -. "Bash integration and fonts" .-> G
+    D -. "provides tmux" .-> TM
+    TM -. "guidance for running agent sessions" .-> A
+
+    P -. "secrets when required" .-> A
+    P -. "credentials when required" .-> T
+```
+
+## Core repository connections
+
+Solid arrows show operational connections. Dotted arrows show guidance, navigation, or support.
+
+
+Workspace policies and STE writing rules apply to all nine core repositories. The manifest lists all nine.
+
 # 000-0-ghostty
 
 ```mermaid
@@ -61,19 +105,25 @@ updates Ghostty is in 000-0-ai.
 Ghostty is not in the RHEL 10 or EPEL 10 repositories. A native build works,
 but RHEL 10 has older GTK and libadwaita than Ghostty can use:
 
-| Library | RHEL 10 | GNOME 49 Flatpak runtime | Newest Ghostty use |
+| Library | RHEL 10 | GNOME 49 Flatpak runtime | Ghostty 1.3-era build |
 |---|---|---|---|
 | GTK | 4.16 | 4.20 | 4.20 |
 | libadwaita | 1.6 | 1.8 | 1.8 |
 
-GTK 4.20 needs glib 2.82 and pango 1.56. RHEL 10 has glib 2.80 and pango 1.54.
-A native GTK 4.20 means you build glib, pango and GTK yourself. The Flatpak
-gets them from the GNOME runtime instead. The build uses Ghostty's own
-manifest, `flatpak/com.mitchellh.ghostty.yml`, from the release source.
+This table describes the environment considered for the Ghostty 1.3-era build;
+it is not a current compatibility matrix. Each release's own Flatpak manifest
+selects its runtime, SDK and compiler. Check the exact release source before a
+build. RHEL 10 has older system GTK libraries, so the Flatpak build avoids a
+native build against those system libraries.
 
-A native build also needs Zig at the exact version that the Ghostty release
-names (0.15.2 for 1.3.x). EPEL has a different version. The Flatpak manifest
-downloads the correct Zig, so you do not install Zig.
+The release source declares a minimum Zig version, and the Flatpak dependency
+manifest selects the bundled Zig version. For Ghostty 1.4.0, [`build.zig.zon`](https://github.com/ghostty-org/ghostty/blob/v1.4.0/build.zig.zon)
+requires Zig 0.17.0, while [`flatpak/dependencies.yml`](https://github.com/ghostty-org/ghostty/blob/v1.4.0/flatpak/dependencies.yml)
+downloads Zig 0.16.0 for x86_64 and aarch64. This is a release-source and
+Flatpak dependency mismatch; it is not an EPEL package issue. The current updater does not resolve it; see
+the [universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
+No fix is installed. Do not retry this build blindly until the release-specific
+dependency mismatch is resolved.
 
 ## Install on a new computer
 
@@ -81,14 +131,16 @@ Do the steps for 000-0-dotfiles (Nerd Fonts, bash) and 000-0-ai (`update`)
 first.
 
 Updater 1.0.007 installs Ghostty and its mapped build prerequisites through
-supported helper-gated routes. A usable graphical helper is required before a
-missing Ghostty install, including the user-scope Flatpak. For each
-system-package operation, the updater checks cached sudo first. If needed, the
-helper can request the system sudo password. The updater does not start an AI
-provider sign-in or request API keys. The manual DNF command remains a valid
-first-setup route. If the user Flathub remote is absent, the updater adds the
-canonical remote with `flatpak remote-add --user --if-not-exists`. It preserves
-an existing Flathub remote and does not add APT or DNF sources.
+supported routes. A graphical helper is needed only when a required privileged
+package operation needs authorization. If the required tools are already
+installed, the user-scope Flatpak build needs no helper. If the user Flathub
+remote is absent, the updater adds the canonical remote with
+`flatpak remote-add --user --if-not-exists`. It preserves an existing Flathub
+remote and does not add APT or DNF sources.
+
+The commands below describe first setup on RHEL 10. They use RHEL and EPEL
+repositories. Fedora Asahi uses Fedora repositories and does not use EPEL.
+Ubuntu setup is outside these instructions.
 
 1. Install the build tools and add the Flathub remote:
 
