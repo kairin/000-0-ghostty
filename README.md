@@ -289,7 +289,7 @@ The next assurance improvement is a durable build receipt with the source tag,
 archive digest, signature result, build flags and installed Flatpak commit.
 That receipt would support later source-provenance checks in addition to
 numeric freshness. See
-the owner's [adversarial workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+the owner's [adversarial workflow review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
 and its upstream Ghostty references.
 
 ## Office toolset and Node.js policy (2026-10-15)
