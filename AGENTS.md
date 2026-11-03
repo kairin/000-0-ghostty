@@ -6,6 +6,10 @@ Single source of truth for AI agents in this repository. `CLAUDE.md` and `GEMINI
 
 Read `~/Apps/000-0-workspace/docs/repository-protection.md` for shared secret
 rules.
+Read `~/Apps/000-0-workspace/docs/update-and-development-tools.md` before
+maintenance work. The `update` command that rebuilds Ghostty asks for sudo once
+per run and keeps it (protected owner decision 2026-11-04). Change that flow only
+when the owner explicitly asks.
 - This repository is public. Do not add local absolute paths (use `~`), personal email addresses or phone numbers.
 
 ## Project overview
