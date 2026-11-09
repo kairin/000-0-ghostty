@@ -120,17 +120,20 @@ The release source declares a minimum Zig version, and the Flatpak dependency
 manifest selects the bundled Zig version. For Ghostty 1.4.0, [`build.zig.zon`](https://github.com/ghostty-org/ghostty/blob/v1.4.0/build.zig.zon)
 requires Zig 0.17.0, while [`flatpak/dependencies.yml`](https://github.com/ghostty-org/ghostty/blob/v1.4.0/flatpak/dependencies.yml)
 downloads Zig 0.16.0 for x86_64 and aarch64. This is a release-source and
-Flatpak dependency mismatch; it is not an EPEL package issue. The current updater does not resolve it; see
-the [universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
-No fix is installed. Do not retry this build blindly until the release-specific
-dependency mismatch is resolved.
+Flatpak dependency mismatch; it is not an EPEL package issue. Updater 1.0.027
+and later build with the exact Zig release that the signed `build.zig.zon`
+requires. That Zig release is downloaded from ziglang.org, checked with
+minisign, and used on a copy of the build inputs. Updater 1.0.028 fetches
+pinned Git source commits by hash. Ghostty 1.4.0 was installed on RHEL on
+2026-11-09 through `update`. The earlier state is described in the
+[universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
 
 ## Install on a new computer
 
 Do the steps for 000-0-dotfiles (Nerd Fonts, bash) and 000-0-ai (`update`)
 first.
 
-Updater 1.0.007 installs Ghostty and its mapped build prerequisites through
+Updater 1.0.027 or later installs Ghostty and its mapped build prerequisites through
 supported routes. A graphical helper is needed only when a required privileged
 package operation needs authorization. If the required tools are already
 installed, the user-scope Flatpak build needs no helper. If the user Flathub
@@ -188,9 +191,9 @@ Ubuntu setup is outside these instructions.
 
 ## Update
 
-The updater release is **1.0.004** (**2026-10-15**), owned and published by
+The updater release is **1.0.029** (**2026-11-09**), owned and published by
 `000-0-ai` as
-[`update-v1.0.004`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.004).
+[`update-v1.0.029`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.029).
 See its [installed-file inventory](../000-0-ai/README.md#installed-files) for
 all destinations. Both installation modes copy the command and fingerprint
 metadata; full installation also refreshes shared instructions, the update
@@ -285,10 +288,10 @@ target. The binary's `1.3.1-dev+0000000` and `tip` labels are expected for an
 official release source-tarball build unless its version string is overridden;
 they do not by themselves identify a nightly build.
 
-The next assurance improvement is a durable build receipt with the source tag,
+Updater 1.0.027 implements the build receipt. It records the source tag,
 archive digest, signature result, build flags and installed Flatpak commit.
-That receipt would support later source-provenance checks in addition to
-numeric freshness. See
+The receipt supports source-provenance checks in addition to numeric
+freshness. RHEL 1.4.0 provenance was VERIFIED on 2026-11-09. See
 the owner's [adversarial workflow review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
 and its upstream Ghostty references.
 

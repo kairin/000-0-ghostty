@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-09: Ghostty 1.4.0 through update
+
+- Ghostty 1.4.0 is installed on RHEL through updater 1.0.029. The build uses
+  the exact Zig release required by the signed `build.zig.zon` (Zig 0.17.0
+  correction), a pinned zigimg commit, and verified source provenance.
+- Docs corrected: the README now describes the Zig correction and the build
+  receipt in updater 1.0.027. The remediation note is removed from this
+  repository; the shared copy is in `000-0-workspace`.
+
 ## 2026-11-09: Correct font deployment status
 
 - The FiraCode font change below is deployed. `update` (1.0.020 and later)
