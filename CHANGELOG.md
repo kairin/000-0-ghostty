@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09: Correct the current updater version
+
+- README: the updater release is 1.0.032 (`update-v1.0.032`).
+
 ## 2026-11-09: Ghostty 1.4.0 through update
 
 - Ghostty 1.4.0 is installed on RHEL through updater 1.0.029. The build uses
