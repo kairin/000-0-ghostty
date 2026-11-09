@@ -97,6 +97,6 @@ incomplete; do not clone, install, or reconstruct it.
 
 Treat the numeric release comparison and build provenance as separate evidence.
 Official source-tarball builds can report `-dev+0000000` and channel `tip`.
-Do not call that label a nightly build without source evidence. A future build
-receipt must name the source tag, archive digest, signature result, build flags
-and installed Flatpak commit. The adapter implementation remains in `000-0-ai`.
+Do not call that label a nightly build without source evidence. Updater 1.0.027 (000-0-ai) writes a build
+receipt: source tag, archive digest, signature result, build flags and installed
+Flatpak commit. The adapter implementation is in `000-0-ai`.

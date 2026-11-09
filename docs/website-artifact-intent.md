@@ -55,4 +55,4 @@ The [shared plan](https://github.com/kairin/000-0-workspace/blob/main/docs/websi
 
 ## Repair prerequisite
 
-[Readiness and repair tasks](website-artifact-remediation.md) are part of this intent. Resolve known relevant findings and run missing checks before artifact adoption. Documentation of an open problem is not its resolution.
+[Readiness and repair tasks](../../000-0-workspace/docs/website-artifact-remediation.md) are part of this intent. Resolve known relevant findings and run missing checks before artifact adoption. Documentation of an open problem is not its resolution.
