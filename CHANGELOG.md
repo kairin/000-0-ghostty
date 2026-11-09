@@ -1,9 +1,14 @@
 # Changelog
 
-## Unreleased: Primary font
+## 2026-11-09: Correct font deployment status
+
+- The FiraCode font change below is deployed. `update` (1.0.020 and later)
+  applies it, and the installed Flatpak configuration matches
+  `config.ghostty` (checked 2026-11-09).
+
+## 2026-10-31: Primary font
 
 - Change the primary font to FiraCode Nerd Font Mono per owner decision 2026-10-31.
-- Not deployed. The installed configuration is unchanged until it is copied.
 
 ## 2026-10-31: Update documentation scope
 
