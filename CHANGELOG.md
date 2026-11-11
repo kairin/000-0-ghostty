@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-12: Current updater 1.0.033
+
+- README: the updater release is 1.0.033 (`update-v1.0.033`).
+
 ## 2026-11-09: Correct the current updater version
 
 - README: the updater release is 1.0.032 (`update-v1.0.032`).

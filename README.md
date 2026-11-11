@@ -191,13 +191,13 @@ Ubuntu setup is outside these instructions.
 
 ## Update
 
-The updater release is **1.0.032** (**2026-11-09**), owned and published by
+The updater release is **1.0.033** (**2026-11-12**), owned and published by
 `000-0-ai` as
-[`update-v1.0.032`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.032).
+[`update-v1.0.033`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.033).
 See its [installed-file inventory](../000-0-ai/README.md#installed-files) for
 all destinations. Both installation modes copy the command and fingerprint
-metadata; full installation also refreshes shared instructions, the update
-skills and the Claude reminder hook. `--command-only` leaves agent integration
+metadata; full installation also refreshes shared instructions, catalogued
+skills, the Claude reminder hook, and existing Antigravity status line files. `--command-only` leaves agent integration
 untouched. Neither installer mode installs or updates applications.
 
 The command starts with its own version and code release date.
