@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14: Docs drift fixes
+
+- README: the updater release is 1.0.035. Add Kitty and RHEL 9 scope.
+- config.ghostty: correct the font comment.
+- Website artifact intent: the shared plan exists.
+
 ## 2026-11-12: Current updater 1.0.033
 
 - README: the updater release is 1.0.033 (`update-v1.0.033`).
