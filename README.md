@@ -25,7 +25,7 @@ flowchart TB
     S -. "source for ste-writing skill" .-> A
 
     A -->|"calls development-tool checks and repairs"| D
-    A -->|"builds Ghostty and checks configuration"| G
+    A -->|"builds Ghostty, then Kitty, and checks configuration"| G
 
     D -. "Bash integration and fonts" .-> G
     D -. "provides tmux" .-> TM
@@ -49,6 +49,7 @@ flowchart TD
     A["000-0-ai update command"] --> B["Verify signed Ghostty release and build Flatpak"]
     B --> C["Ghostty terminal"]
     D["config.ghostty and host Bash integration"] --> C
+    C --> K["Kitty, installed after Ghostty"]
     E["000-0-dotfiles fonts and Bash setup"] --> C
 ```
 
@@ -59,6 +60,7 @@ flowchart TD
 - **Tier:** `0`. Core. Every project must follow its rules, with no exceptions.
 - **Needs:** The `update` command from 000-0-ai, Flatpak, and the Nerd Fonts and bash setup from 000-0-dotfiles.
 - **Gives:** The Ghostty terminal with current GTK and libadwaita, and its configuration.
+- **Scope:** Ghostty is the preferred terminal. The `update` command also installs Kitty after it. Updater 1.0.034 and later supports RHEL 9. It skips a missing Ghostty only if the measured OpenGL core profile is below 4.0.
 - **On a new computer:** set it up step 7 of 7 in the core tier.
 
 This folder is part of the `~/Apps` SOP (Standard Operating Procedure). The
@@ -191,9 +193,9 @@ Ubuntu setup is outside these instructions.
 
 ## Update
 
-The updater release is **1.0.033** (**2026-11-12**), owned and published by
+The updater release is **1.0.035**, owned and published by
 `000-0-ai` as
-[`update-v1.0.033`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.033).
+[`update-v1.0.035`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.035).
 See its [installed-file inventory](../000-0-ai/README.md#installed-files) for
 all destinations. Both installation modes copy the command and fingerprint
 metadata; full installation also refreshes shared instructions, catalogued

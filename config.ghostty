@@ -13,7 +13,7 @@
 shell-integration = detect
 shell-integration-features = sudo,title,ssh-env
 
-# FONT - same Nerd Font as Ptyxis (see 000-0-dotfiles docs/nerd-fonts.md).
+# FONT - owner-selected Ghostty font, FiraCode Nerd Font Mono (see 000-0-dotfiles docs/nerd-fonts.md).
 font-family = FiraCode Nerd Font Mono
 font-size = 14
 
