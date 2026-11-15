@@ -25,7 +25,7 @@ flowchart TB
     S -. "source for ste-writing skill" .-> A
 
     A -->|"calls development-tool checks and repairs"| D
-    A -->|"builds Ghostty, then Kitty, and checks configuration"| G
+    A -->|"builds Ghostty, installs Kitty, and checks configuration"| G
 
     D -. "Bash integration and fonts" .-> G
     D -. "provides tmux" .-> TM
