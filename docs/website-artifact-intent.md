@@ -46,7 +46,7 @@ Keep this export local until its audience and permitted fields are approved.
 
 Preserve original records and existing project tests. Test offline behavior where the project requires it. Missing tools mean incomplete checks. Keep publishing separate from building.
 
-The [shared plan](https://github.com/kairin/000-0-workspace/blob/main/docs/website-artifacts/plan.md) defines task dependencies and review gates. This link targets the proposed documentation destination. It becomes available after a separate Git delivery workflow.
+The [shared plan](https://github.com/kairin/000-0-workspace/blob/main/docs/website-artifacts/plan.md) defines task dependencies and review gates.
 
 ## Evidence
 
