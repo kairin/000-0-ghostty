@@ -193,9 +193,9 @@ Ubuntu setup is outside these instructions.
 
 ## Update
 
-The updater release is **1.0.036**, owned and published by
+The updater release is **1.0.037**, owned and published by
 `000-0-ai` as
-[`update-v1.0.036`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.036).
+[`update-v1.0.037`](https://github.com/kairin/000-0-ai/releases/tag/update-v1.0.037).
 See its [installed-file inventory](../000-0-ai/README.md#installed-files) for
 all destinations. Both installation modes copy the command and fingerprint
 metadata; full installation also refreshes shared instructions, catalogued
