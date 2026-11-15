@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-15: Current updater 1.0.036
+
+- README: the updater release is 1.0.036.
+
 ## 2026-11-14: Docs drift fixes
 
 - README: the updater release is 1.0.035. Add Kitty and RHEL 9 scope.
