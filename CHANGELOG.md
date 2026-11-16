@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-16: Current updater 1.0.039
+
+- README: the updater release is 1.0.039 (#295, #296 and #297 moved it from
+  1.0.036 through 1.0.037 and 1.0.038).
+- README: name Fedora Asahi Remix (aarch64), add its Flatpak ref and origin,
+  add `--rebuild-ghostty`, add Kitty to the update diagram, and record
+  Asahi provenance as VERIFIED on 2026-11-13 and 2026-11-16.
+- AGENTS.md: the `update` row names Kitty.
+
 ## 2026-11-15: Current updater 1.0.036
 
 - README: the updater release is 1.0.036.
