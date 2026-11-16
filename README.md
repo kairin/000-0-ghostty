@@ -56,7 +56,7 @@ flowchart TD
 <!-- key-information:start -->
 ## Key information
 
-- **Description:** Runs the Ghostty terminal on RHEL 10 as a Flatpak built from the signed release, with bash integration and the current configuration.
+- **Description:** Runs the Ghostty terminal on RHEL 10 and Fedora Asahi Remix (aarch64) as a Flatpak built from the signed release, with bash integration and the current configuration.
 - **Tier:** `0`. Core. Every project must follow its rules, with no exceptions.
 - **Needs:** The `update` command from 000-0-ai, Flatpak, and the Nerd Fonts and bash setup from 000-0-dotfiles.
 - **Gives:** The Ghostty terminal with current GTK and libadwaita, and its configuration.
@@ -129,6 +129,12 @@ minisign, and used on a copy of the build inputs. Updater 1.0.028 fetches
 pinned Git source commits by hash. Ghostty 1.4.0 was installed on RHEL on
 2026-11-09 through `update`. The earlier state is described in the
 [universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
+
+On Fedora Asahi Remix (aarch64), the installed Flatpak ref is
+`app/com.mitchellh.ghostty/aarch64/tip`. Its origin is `ghostty1-origin`.
+On 2026-11-13, a legacy install had no provenance receipt, so the check showed
+UNVERIFIED. `update --only ghostty --rebuild-ghostty` rebuilt Ghostty and
+fixed this.
 
 ## Install on a new computer
 
@@ -215,6 +221,12 @@ checks that it starts, and removes the build files and unused Flatpak
 runtimes. Restart Ghostty to use the new version. `flatpak update` does not
 update Ghostty, because it is a local build.
 
+To force a rebuild, run
+`update --only ghostty --rebuild-ghostty`. Use it when the result says
+"Ghostty provenance UNVERIFIED (legacy install has no provenance receipt)".
+A legacy install is a Ghostty that an older updater built, so it has no
+receipt. The rebuild writes the receipt.
+
 The result reports version evidence and identifies numeric tags as the target
 source. Expected per-tool failures are reported without preventing other
 selected tools from updating. The updater itself is a tested copy from
@@ -276,7 +288,7 @@ flowchart TD
     B --> C["Check published updater and restart if newer"]
     C --> D["Check required dev tools · 000-0-dotfiles"]
     D --> E["Repair missing or broken tools, then check again"]
-    E --> F["Update selected AI tools, Bash tools and Ghostty"]
+    E --> F["Update selected AI tools, Bash tools, Ghostty and Kitty"]
 ```
 
 Read `../000-0-workspace/docs/update-and-development-tools.md` for commands,
@@ -293,7 +305,9 @@ they do not by themselves identify a nightly build.
 Updater 1.0.027 implements the build receipt. It records the source tag,
 archive digest, signature result, build flags and installed Flatpak commit.
 The receipt supports source-provenance checks in addition to numeric
-freshness. RHEL 1.4.0 provenance was VERIFIED on 2026-11-09. See
+freshness. RHEL 1.4.0 provenance was VERIFIED on 2026-11-09. Fedora Asahi
+provenance was VERIFIED on 2026-11-13, after the rebuild, and again in the
+update run of 2026-11-16. See
 the owner's [adversarial workflow review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
 and its upstream Ghostty references.
 

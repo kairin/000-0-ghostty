@@ -24,7 +24,7 @@ They are in other core repositories:
 
 | Part | Repository |
 |---|---|
-| `update` command that installs and rebuilds Ghostty, its installer, skill, Claude hook and tests | `000-0-ai` (`local-bin/update`, `local-bin/install-update.py`, `skills/update/`, `hooks/claude/update_reminder.py`, `tests/test_update.py`) |
+| `update` command that installs and rebuilds Ghostty, installs Kitty, its installer, skill, Claude hook and tests | `000-0-ai` (`local-bin/update`, `local-bin/install-update.py`, `skills/update/`, `hooks/claude/update_reminder.py`, `tests/test_update.py`) |
 | Nerd Fonts, bash and `~/.bashrc.d` setup | `000-0-dotfiles` |
 | Routine maintenance | `000-0-workspace` |
 
