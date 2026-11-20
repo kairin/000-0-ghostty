@@ -2,7 +2,7 @@
 flowchart TB
     subgraph Rules["Rules and navigation"]
         W["000-0-workspace<br/>Shared policies, procedures and architecture"]
-        M["000-0-manifest<br/>Repository inventory and status"]
+        M["000-0-manifest-core<br/>Public setup guide and bootstrap script"]
         S["000-0-ASD-STE100<br/>Writing standards and prose checker"]
     end
 
